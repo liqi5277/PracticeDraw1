@@ -2,12 +2,15 @@ package com.hencoder.hencoderpracticedraw1.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class Practice6DrawLineView extends View {
-
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     public Practice6DrawLineView(Context context) {
         super(context);
     }
@@ -20,10 +23,18 @@ public class Practice6DrawLineView extends View {
         super(context, attrs, defStyleAttr);
     }
 
+    final float[] pts = {600, 100, 800, 100, 800, 100, 600, 200};
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawLine() 方法画直线
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(20);
+
+
+        canvas.drawLines(pts, paint);
+
+        canvas.drawLine(100, 100, 500, 400, paint);
     }
 }
